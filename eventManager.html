@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="UniClubsHub.png" type="image/x-icon">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif; 
+           background-color: #f4f5f7;
+            color: #333;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 220px; 
+            background-color: #fff;
+            padding: 20px; 
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h2 {
+            font-size: 1.6rem;
+            color: #3c84ff;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 12px; 
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+        }
+
+        .sidebar ul li a .icon {
+            width: 20px;
+            margin-right: 8px;
+        }
+
+        .sidebar ul li a:hover {
+            color: #3c84ff;
+        }
+
+        .top-section {
+            background-color: #fff;
+            padding: 15px 25px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px; 
+        }
+
+        .top-section h1 {
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .table-data {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+        .table-data table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .table-data table thead {
+            background-color: #f4f5f7;
+        }
+
+        .table-data table th, .table-data table td {
+            padding: 12px 15px; 
+            text-align: left;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-bottom: 1px solid #eee;
+            border: 1px solid #ddd; 
+        }
+
+        .table-data table th {
+            font-weight: bold;
+            background-color: #558dee; 
+            color: white; 
+            text-align: center;
+        }
+
+
+        
+        button {
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .approve-btn {
+            background-color: #3c84ff; 
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #dc3545; 
+            color: white;
+        }
+
+        button:disabled {
+            background-color: #d3d3d3;
+            cursor: not-allowed;
+        }
+
+        .approve-btn:hover {
+            background-color: #0056b3; 
+        }
+
+        .delete-btn:hover {
+            background-color: #c82333; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>UniClubs Hub</h2>
+            <ul>
+                <li><a href="#"><img src="icon.png" class="icon"> Dashboard</a></li>
+                <li><a href="#"><img src="icon.png" class="icon"> Analytics</a></li>
+                <li><a href="#"><img src="icon.png" class="icon"> Messages</a></li>
+                <li><a href="#"><img src="icon.png" class="icon"> Events</a></li>
+                <li><a href="#"><img src="icon.png" class="icon"> Collections</a></li>
+                <li><a href="#"><img src="icon.png" class="icon"> Users</a></li>
+                <li><a href="#"><img src="icon.png" class="icon"> Ranking</a></li>
+                <li><a href="#"><img src="icon.png" class="icon"> Posts</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" style="flex-grow: 1; padding: 20px;">
+            <!-- Top Section -->
+            <div class="top-section">
+                <h1>User Data Table</h1>
+            </div>
+
+            <div class="table-data">
+                <table id="userTable">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadUserTable() {
+            const userTableBody = document.querySelector("#userTable tbody");
+            userTableBody.innerHTML = ''; 
+
+            let users = Object.values(localStorage).map(user => JSON.parse(user));
+
+            if (Array.isArray(users)) {
+                users.forEach((user, index) => {
+                    const row = document.createElement('tr');
+
+                    row.innerHTML = `
+                        <td>${user.firstName}</td>
+                        <td>${user.lastName}</td>
+                        <td>${user.email}</td>
+                        <td>${user.date}</td>
+                        <td>${user.isAdmin ? 'Admin' : 'Not Admin'}</td>
+                        <td>
+                            <button class="approve-btn" onclick="acceptUser(${index})" ${user.isAdmin ? 'disabled' : ''}>Accept</button>
+                            <button class="delete-btn" onclick="deleteUser(${index})">Delete</button>
+                        </td>
+                    `;
+
+                    userTableBody.appendChild(row);
+                });
+            }
+        }
+
+        function acceptUser(index) {
+            let users = Object.values(localStorage).map(user => JSON.parse(user));
+
+            if (Array.isArray(users)) {
+
+                users[index].isAdmin = true;
+                localStorage.setItem(users[index].email, JSON.stringify(users[index]));
+
+
+                loadUserTable();
+            }
+        }
+
+        function deleteUser(index) {
+            let users = Object.values(localStorage).map(user => JSON.parse(user));
+
+
+            if (Array.isArray(users)) {
+
+                localStorage.removeItem(users[index].email);
+
+                loadUserTable();
+            }
+        }
+
+        window.onload = function () {
+            loadUserTable();
+        };
+    </script>
+</body>
+</html>
