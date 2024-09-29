@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competitions | UniClubs Hub</title>
+    <link rel="stylesheet" href="assets/css/competitions.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1><a href="Home.html">UniClubs Hub</a></h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="container">
+            <h2>Explore Upcoming Competitions</h2>
+            <p>Challenge yourself, collaborate with peers, and showcase your talents. Get ready to compete and succeed!</p>
+        </div>
+    </section>
+
+    <!-- Competitions List -->
+    <section class="competitions">
+        <div class="container">
+            <div class="competition-item">
+                <div class="image"><img src="images/p8.jpg" alt="Tech Hackathon"></div>
+                <div class="details">
+                    <h3>Tech Hackathon 2024</h3>
+                    <p>Join the ultimate coding competition where creativity meets technology. Team up and build innovative solutions within 48 hours.</p>
+                    <span class="date">Date: October 15, 2024</span>
+                    <a href="#" class="button">Register Now</a>
+                </div>
+            </div>
+
+            <div class="competition-item">
+                <div class="image"><img src="images/p9.jpg" alt="Business Pitch"></div>
+                <div class="details">
+                    <h3>Business Pitch Competition</h3>
+                    <p>Pitch your startup idea to a panel of industry experts and investors. Compete for funding and mentorship opportunities.</p>
+                    <span class="date">Date: November 22, 2024</span>
+                    <a href="#" class="button">Register Now</a>
+                </div>
+            </div>
+
+            <div class="competition-item">
+                <div class="image"><img src="images/p10.jpg" alt="Design Challenge"></div>
+                <div class="details">
+                    <h3>Creative Design Challenge</h3>
+                    <p>Showcase your design skills in this exciting competition that spans various creative disciplines, from UI/UX to graphic design.</p>
+                    <span class="date">Date: December 5, 2024</span>
+                    <a href="#" class="button">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container back-home">
+        <a href="Home.html" class="back-button">Back to Home</a>
+    </div>
+    <br>
+
+</br>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <li>&copy; All rights reserved</li><li>Done by: Homam , Mohammad , Gufran , khalil</a></li>
+        </div>
+    </footer>
+<style>
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #27ae60;
+}
+
+a:hover {
+    color: #2ecc71;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 a {
+    color: #fff;
+    font-size: 1.8em;
+}
+
+header nav ul {
+    list-style: none;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    padding: 0.5em 1em;
+    transition: background 0.3s;
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+    background-color: #27ae60;
+    border-radius: 25px;
+}
+
+/* Banner */
+.banner {
+    background: linear-gradient(135deg, #3c84ff, #3c84ff);
+    padding: 5em 0;
+    text-align: center;
+    color: #fff;
+}
+
+.banner h2 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+.banner p {
+    font-size: 1.25em;
+}
+
+/* Competitions Section */
+.competitions {
+    padding: 4em 0;
+    background-color: #f8f8f8;
+}
+
+.competitions .competition-item {
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 2em;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.competitions .competition-item:hover {
+    transform: translateY(-10px);
+}
+
+.competitions .image {
+    flex: 1;
+    max-width: 300px;
+}
+
+.competitions .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px 0 0 8px;
+}
+
+.competitions .details {
+    flex: 2;
+    padding: 2em;
+}
+
+.competitions .details h3 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+
+.competitions .details p {
+    font-size: 1.1em;
+    margin-bottom: 1em;
+    color: #555;
+}
+
+.competitions .details .date {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 1em;
+}
+
+.competitions .details .button {
+    background-color: #ff9500;
+    color: #fff;
+    padding: 0.75em 1.5em;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.competitions .details .button:hover {
+    background-color: #2ecc71;
+}
+.back-home {
+    text-align: center;
+    margin-top: -3em;
+}
+
+.back-home .back-button {
+    background-color: #3c84ff;
+    color: #fff;
+    padding: 0.75em 2em;
+    border-radius: 25px;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+.back-home .back-button:hover {
+    background-color: #ff4d4d;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 2em 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+
+</style>
+</body>
+
+</html>
