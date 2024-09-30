@@ -255,23 +255,31 @@
                 document.getElementById('repeatPasswordError').textContent = 'Passwords do not match.';
                 isValid = false;
             }
-    
-            if (isValid) {
-                const userData = {
-                    firstName: firstName,
-                    lastName: lastName,
-                    email: email,
-                    password: password,
-                    date: new Date().toLocaleString(),
-                    isAdmin: false,
-                };
-    
-                localStorage.setItem(email, JSON.stringify(userData));
-                alert('Registration successful!');
-    
-                document.getElementById('registrationForm').reset();
-            }
-        });
+            document.getElementById('registrationForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Your validation and other code here...
+
+                if (isValid) {
+                    const userData = {
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        password: password,
+                        date: new Date().toLocaleString(),
+                        isAdmin: false,
+                    };
+
+                    localStorage.setItem(email, JSON.stringify(userData));
+                    alert('Registration successful! Redirecting to login page.');
+
+                    document.getElementById('registrationForm').reset();
+
+                    // Redirect to login page after successful registration
+                    window.location.href = 'login.html'; // Replace 'login.html' with the actual login page URL
+                }
+            });
+
     
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('input', function() {

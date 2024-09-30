@@ -167,7 +167,7 @@
                     <span class="icon-login">
                         <i class='bx bx-user'></i>
                     </span>
-                    <input type="text" id="username" placeholder=" " >
+                    <input type="text" id="username" placeholder=" ">
                     <label>Username</label>
                     <span id="usernameErrorlogin" class="error-message-login"></span>
                 </div>
@@ -176,7 +176,7 @@
                     <span class="icon-login">
                         <i class='bx bx-lock-alt'></i>
                     </span>
-                    <input type="password" id="password" placeholder=" " >
+                    <input type="password" id="password" placeholder=" ">
                     <label>Password</label>
                     <span id="passwordErrorlogin" class="error-message-login"></span>
                 </div>
@@ -186,75 +186,76 @@
                 </div>
 
                 <button type="submit" class="btn">Login</button>
-                
+
                 <div class="login-register">
-                    <p>Don't have an account?
+                    <p>
+                        Don't have an account?
                         <a href="register.html">Register</a>
                     </p>
                 </div>
             </form>
         </div>
     </div>
-    
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Clear any previous error messages
             document.getElementById('usernameErrorlogin').textContent = '';
             document.getElementById('passwordErrorlogin').textContent = '';
 
+            // Get input values
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
-            
+
             let isValid = true;
 
+            // Validate username (email)
             if (!username) {
                 document.getElementById('usernameErrorlogin').textContent = 'Username is required.';
                 isValid = false;
-                document.getElementById('username').classList.add('error'); 
+                document.getElementById('username').classList.add('error');
             } else {
-                document.getElementById('username').classList.remove('error'); 
+                document.getElementById('username').classList.remove('error');
             }
 
+            // Validate password
             if (!password) {
                 document.getElementById('passwordErrorlogin').textContent = 'Password is required.';
                 isValid = false;
-                document.getElementById('password').classList.add('error'); // Add error class
+                document.getElementById('password').classList.add('error');
             } else {
-                document.getElementById('password').classList.remove('error'); // Remove error class
+                document.getElementById('password').classList.remove('error');
             }
 
+            // If validation is successful
             if (isValid) {
-                const userData = JSON.parse(localStorage.getItem(username));
-                
-                if (userData) {
-                    if (userData.password === password) {
+                // Check if the username and password match the admin credentials
+                if ((username === 'Admin@gmail.com' && password === 'Admin123') || (username === 'admin2@gmail.com' && password === 'Admin123')) {
+                    alert('Login successful! Welcome, Admin.');
 
-                        if (userData.isAdmin) {
-                            alert('Login successful! Welcome, Admin.');
-                            document.getElementById('loginForm').reset(); 
-                        } else {
-                            alert('Access denied! You are not an admin.');
-                            document.getElementById('loginForm').reset();
+                    // Store logged-in admin information
+                    localStorage.setItem('loggedInUser', JSON.stringify({ username, isAdmin: true }));
 
-                        }
-                    } else {
-                        alert('Invalid username or password.');
-                    }
+                    // Redirect to the dashboard
+                    window.location.href = 'dashboard.html'; // Replace with the actual dashboard URL
+
+                    document.getElementById('loginForm').reset();
                 } else {
                     alert('Invalid username or password.');
                 }
             }
         });
 
+        // Clear error messages when typing
         document.querySelectorAll('input').forEach(input => {
-            input.addEventListener('input', function() {
+            input.addEventListener('input', function () {
                 const errorElementId = input.id + 'Errorlogin';
                 document.getElementById(errorElementId).textContent = '';
-                input.classList.remove('error'); 
+                input.classList.remove('error');
             });
         });
-
     </script>
+
 </body>
 </html>
