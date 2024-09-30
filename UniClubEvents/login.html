@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This is a project for managing and displaying events, including an admin dashboard for adding and editing events.">
+    <meta name="keywords" content="events, event management, admin dashboard, add events, edit events">
+    <link rel="icon" href="UniClubsHub.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Login Admin</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f5f7;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px;
+        }
+
+        .form-box {
+            width: 100%;
+        }
+
+        .form-box h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .input-box-login {
+            position: relative;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .input-box-login label {
+            color: #9da1a3;
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            transition: 0.5s;
+        }
+
+        .input-box-login input {
+            width: 100%;
+            padding: 10px 35px 10px 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-box-login input:focus ~ label,
+        .input-box-login input:not(:placeholder-shown) ~ label {
+            top: -10px;
+            font-size: 12px;
+            color: #007bff; 
+        }
+
+        input:focus {
+            background-color: #e7f0ff; 
+        }
+
+
+        .input-box-login .icon-login {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #007bff;
+        }
+
+        .remember-forgot {
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .remember-forgot a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .login-register {
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .login-register p {
+            margin: 0;
+        }
+
+        .login-register p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-register p a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            border-color: red;
+        }
+
+        .error-message-login {
+            color: red;
+            font-size: 12px;
+            margin-top: 8px; 
+            padding-left: 7px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="form-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="input-box-login">
+                    <span class="icon-login">
+                        <i class='bx bx-user'></i>
+                    </span>
+                    <input type="text" id="username" placeholder=" ">
+                    <label>Username</label>
+                    <span id="usernameErrorlogin" class="error-message-login"></span>
+                </div>
+
+                <div class="input-box-login">
+                    <span class="icon-login">
+                        <i class='bx bx-lock-alt'></i>
+                    </span>
+                    <input type="password" id="password" placeholder=" ">
+                    <label>Password</label>
+                    <span id="passwordErrorlogin" class="error-message-login"></span>
+                </div>
+
+                <div class="remember-forgot">
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+
+                <div class="login-register">
+                    <p>
+                        Don't have an account?
+                        <a href="register.html">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Clear any previous error messages
+            document.getElementById('usernameErrorlogin').textContent = '';
+            document.getElementById('passwordErrorlogin').textContent = '';
+
+            // Get input values
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            let isValid = true;
+
+            // Validate username (email)
+            if (!username) {
+                document.getElementById('usernameErrorlogin').textContent = 'Username is required.';
+                isValid = false;
+                document.getElementById('username').classList.add('error');
+            } else {
+                document.getElementById('username').classList.remove('error');
+            }
+
+            // Validate password
+            if (!password) {
+                document.getElementById('passwordErrorlogin').textContent = 'Password is required.';
+                isValid = false;
+                document.getElementById('password').classList.add('error');
+            } else {
+                document.getElementById('password').classList.remove('error');
+            }
+
+            // If validation is successful
+            if (isValid) {
+                // Check if the username and password match the admin credentials
+                if ((username === 'Admin@gmail.com' && password === 'Admin123') || (username === 'admin2@gmail.com' && password === 'Admin123')) {
+                    alert('Login successful! Welcome, Admin.');
+
+                    // Store logged-in admin information
+                    localStorage.setItem('loggedInUser', JSON.stringify({ username, isAdmin: true }));
+
+                    // Redirect to the dashboard
+                    window.location.href = 'dashboard.html'; // Replace with the actual dashboard URL
+
+                    document.getElementById('loginForm').reset();
+                } else {
+                    alert('Invalid username or password.');
+                }
+            }
+        });
+
+        // Clear error messages when typing
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', function () {
+                const errorElementId = input.id + 'Errorlogin';
+                document.getElementById(errorElementId).textContent = '';
+                input.classList.remove('error');
+            });
+        });
+    </script>
+
+</body>
+</html>
