@@ -615,24 +615,23 @@
             <h2>UniClubs Hub</h2>
             <div class="menu-container">
                 <ul class="icon-list">
-                    <li><i class="fas fa-tachometer-alt"></i></li>
-                    <li><i class="fas fa-chart-line"></i></li>
-                    <li><i class="fas fa-envelope"></i></li>
-                    <li><i class="fas fa-calendar-alt"></i></li>
-                    <li><i class="fas fa-folder"></i></li>
-                    <li><i class="fas fa-users"></i></li>
-                    <li><i class="fas fa-star"></i></li>
-                    <li><i class="fas fa-edit"></i></li>
+                    <li><i class="fas fa-tachometer-alt"></i></li>   <!-- Dashboard -->
+                    <li><i class="fas fa-calendar-alt"></i></li>     <!-- Events -->
+                    <li><i class="fas fa-home"></i></li>             <!-- Home -->
+                    <li><i class="fas fa-info-circle"></i></li>      <!-- About -->
+                    <li><i class="fas fa-user-plus"></i></li>        <!-- Register -->
+                    <li><i class="fas fa-sign-in-alt"></i></li>      <!-- Login -->
+                    <li><i class="fas fa-users"></i></li>            <!-- Users -->
                 </ul>
+
                 <ul class="text-list">
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Messages</a></li>
-                    <li><a href="#">Events</a></li>
-                    <li><a href="#">Collections</a></li>
-                    <li><a href="#">Users</a></li>
-                    <li><a href="#">Ranking</a></li>
-                    <li><a href="#">Posts</a></li>
+                    <li><a href="Dashboard.html">Dashboard</a></li>
+                    <li><a href="UserRegistrationRequest.html">Users</a></li>
+                    <li><a href="Events.html">Events</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="Register.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -643,11 +642,9 @@
             <div class="top-section">
                 <h1>Event Manager</h1>
                 <div class="buttons">
-                    <button class="edit-btn">Edit</button>
+                    <button class="dark-mode-toggle" id="darkModeToggle">🌙 Dark Mode</button>
                     <button class="create-btn">Create</button>
-                    <button class="manage-btn">Manage</button>
                 </div>
-                <button class="dark-mode-toggle" id="darkModeToggle">🌙 Dark Mode</button>
             </div>
 
             <!-- Info Cards -->
@@ -661,16 +658,6 @@
                     <h2>Closest Event</h2>
                     <p id="closest-event-name">No upcoming events</p>
                     <span id="closest-event-date"></span>
-                </div>
-                <div class="info-card">
-                    <h2>Total Hours</h2>
-                    <p>4,100</p>
-                    <span>Since last month</span>
-                </div>
-                <div class="info-card">
-                    <h2>Workload</h2>
-                    <p>88%</p>
-                    <span>Since last month</span>
                 </div>
             </div>
 

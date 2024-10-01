@@ -7,8 +7,6 @@
     <style>
         * {
             box-sizing: border-box;
-            font-family: 'Times New Roman', Times, serif;
-
         }
 
         body, html {
@@ -19,16 +17,12 @@
         }
 
         header {
-            background-color: #fff;
+            background-color: #2c3e50;
             padding: 10px;
-            color: #007bff;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0; 
-            z-index: 1000; 
-
         }
 
             header .logo {
@@ -49,17 +43,14 @@
             }
 
                 header nav a {
-                    color: rgb(5, 5, 5);
+                    color: white;
                     text-decoration: none;
                     padding: 8px 15px;
-
                 }
 
                     header nav a:hover {
-                        text-decoration: underline; 
-                        border-radius: 4px;
-                        color: rgb(0, 0, 0);
-                        transition: all 0.3s ease;
+                        background-color: #34495e;
+                        border-radius: 5px;
                     }
 
         .hero-section {
@@ -88,7 +79,7 @@
                 background-color: #27ae60;
                 padding: 15px 30px;
                 text-decoration: none;
-                color: rgb(255, 255, 255);
+                color: white;
                 font-weight: bold;
                 border-radius: 5px;
             }
@@ -114,9 +105,9 @@
         }
 
         .feature-box {
-            background-color: #f3f3f3;
+            background-color: #27ae60;
             padding: 30px;
-            color: rgb(0, 0, 0);
+            color: white;
             width: 250px;
             border-radius: 10px;
             text-align: center;
@@ -164,7 +155,7 @@
             .course-card h3 {
                 margin: 15px 0;
                 font-size: 1.3rem;
-                color: black;
+                color: #27ae60;
             }
 
             .course-card p {
@@ -186,8 +177,8 @@
                 }
 
         footer {
-            background-color: #ffffff;
-            color: rgb(0, 0, 0);
+            background-color: #2c3e50;
+            color: white;
             text-align: center;
             padding: 20px 0;
             margin-top: 50px;
@@ -296,19 +287,72 @@
                     background-color: #717171;
                 }
     </style>
+    <style>
+        /* Status badge */
+        .badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: white;
+            font-weight: bold;
+        }
+
+            .badge.scheduled {
+                background-color: #3c84ff;
+            }
+
+            .badge.completed {
+                background-color: #2ecc71;
+            }
+
+            .badge.canceled {
+                background-color: #ff4d4d;
+            }
+
+        /* About Section */
+        .about-section {
+            background-color: #f1f1f1;
+            padding: 20px 50px;
+            text-align: center;
+        }
+
+            .about-section h1 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: #2c3e50;
+            }
+
+            .about-section p {
+                font-size: 1.2rem;
+                color: #333;
+                line-height: 1.6;
+                margin-bottom: 40px;
+                max-width: 800px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <div class="logo">
-            <span>UniClubs Hub</span>
+            <span>UniClubs</span>
         </div>
         <nav>
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="Events.html">Events</a>
-            <a href="login.html" style="background-color: #007bff; color: rgb(255, 255, 255); padding: 8px 15px; border-radius: 5px; text-decoration: none;">Login</a>
-            <a href="register.html" style="background-color: #2ecc71; color: rgb(255, 255, 255); padding: 8px 15px; border-radius: 5px; text-decoration: none;">Register</a>
+            <a href="login.html" style="background-color: #3498db; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none;">Login</a>
+            <a href="register.html" style="background-color: #2ecc71; color: white; padding: 8px 15px; border-radius: 5px; text-decoration: none; margin-left: 10px;">Register</a>
         </nav>
     </header>
 
@@ -319,21 +363,20 @@
                 <div>
                     <h1>Manage University Clubs and Events</h1>
                     <p class="text_color">Streamline the way university students organize clubs and events with UniClubs.</p>
-                    <a href="#">Get Started</a>
+                    <a href="register.html">Get Started</a>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('slid_2.jpg');">
                 <div>
                     <h1>Join University Clubs Easily</h1>
                     <p class="text_color">Connect with fellow students and find your ideal clubs.</p>
-                    <a href="#">Explore Clubs</a>
                 </div>
             </div>
             <div class="carousel-item" style="background-image: url('slid_5.jpg');">
                 <div>
                     <h1>Stay Updated with Events</h1>
                     <p class="text_color">Receive notifications and never miss any club activities or events.</p>
-                    <a href="#">View Events</a>
+                    <a href="Events.html">View Events</a>
                 </div>
             </div>
         </div>
@@ -369,32 +412,33 @@
         </div>
     </section>
 
-    <section class="courses-section">
-        <h2>Popular Club Activities</h2>
-        <div class="courses">
-            <div class="course-card">
-                <img src="slid_1.jpg" alt="Sports Club">
-                <h3>Sports Club</h3>
-                <p>Join our university's sports teams and stay active.</p>
-                <a href="#">Learn More</a>
-            </div>
-            <div class="course-card">
-                <img src="slid_2.jpg" alt="Coding Club">
-                <h3>Coding Club</h3>
-                <p>Sharpen your programming skills with fellow students.</p>
-                <a href="#">Learn More</a>
-            </div>
-            <div class="course-card">
-                <img src="slid_1.jpg" alt="Music Club">
-                <h3>Music Club</h3>
-                <p>Express yourself with music and perform at events.</p>
-                <a href="#">Learn More</a>
+    <!-- Main Content -->
+    <section class="about-section">
+        <div class="main-content">
+            <h1>All Events</h1>
+
+            <!-- Event List -->
+            <div class="event-list">
+                <table style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                            <th>Weather</th> <!-- New column for weather -->
+                        </tr>
+                    </thead>
+                    <tbody id="event-list-body">
+                        <!-- Events with weather data will be dynamically inserted here -->
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
-
     <footer>
-        <p>&copy; 2024 UniClubs Hub. All rights reserved.</p>
+        <p>&copy; 2024 UniClubs. All rights reserved.</p>
     </footer>
     <script>
         let currentIndex = 0;
@@ -433,6 +477,90 @@
         }, 8000); // Automatically change slide every 8 seconds
 
         showSlide(currentIndex); // Initialize the first slide
+    </script>
+    <!-- Script to Load Events with Weather Data -->
+    <script>
+        const apiKey = 'ohqxoj90slh23ccswt00qhsxgbkawuf7m4g0abff'; // Your API key
+        const placeId = 'amman'; // Always using Amman for the place_id
+
+        // Function to fetch weather data for a specific date
+        async function fetchWeather(date) {
+            try {
+                // Format the API URL for Amman with the provided API key
+                const weatherUrl = `https://www.meteosource.com/api/v1/free/point?place_id=${placeId}&sections=daily&timezone=Asia/Amman&language=en&units=metric&key=${apiKey}`;
+                const response = await fetch(weatherUrl);
+                const data = await response.json();
+
+                // Log the API response to inspect its structure
+                console.log('Weather API Response:', data);
+
+                // Ensure that data.daily.data exists and is an array
+                if (data.daily && data.daily.data && Array.isArray(data.daily.data)) {
+                    // Find the forecast for the event date (assuming date is in YYYY-MM-DD format)
+                    const forecast = data.daily.data.find(day => day.day === date);
+
+                    if (forecast) {
+                        // Get morning and night temperatures, or fallback to all_day temperatures if not available
+                        const morningTemp = forecast.morning ? forecast.morning.temperature : forecast.all_day.temperature_min;
+                        const nightTemp = forecast.evening ? forecast.evening.temperature : forecast.all_day.temperature_max;
+
+                        return {
+                            morningTemp,
+                            nightTemp,
+                            windSpeed: forecast.all_day.wind.speed,
+                            precipitation: forecast.all_day.precipitation.total
+                        };
+                    } else {
+                        console.warn(`No forecast found for the date: ${date}`);
+                    }
+                } else {
+                    console.error('No daily weather data available.');
+                }
+            } catch (error) {
+                console.error('Error fetching weather data:', error);
+            }
+
+            // Return default values if weather data is not available
+            return { morningTemp: 'N/A', nightTemp: 'N/A', windSpeed: 'N/A', precipitation: 'N/A' };
+        }
+
+        // Function to load events from localStorage and display them along with weather data
+        async function loadEvents() {
+            const events = JSON.parse(localStorage.getItem('events')) || [];
+            const eventListBody = document.getElementById('event-list-body');
+            eventListBody.innerHTML = ''; // Clear the table body
+
+            if (events.length === 0) {
+                const noEventRow = document.createElement('tr');
+                noEventRow.innerHTML = `
+                                <td colspan="6" style="text-align: center; padding: 20px;">No events found.</td>
+                            `;
+                eventListBody.appendChild(noEventRow);
+                return;
+            }
+
+            // Loop through each event and fetch weather data for the event date
+            for (const event of events) {
+                const weather = await fetchWeather(event.date);
+
+                const eventRow = document.createElement('tr');
+                eventRow.innerHTML = `
+                                <td><img src="${event.image}" alt="Event Image" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;"></td>
+                                <td>${event.name}</td>
+                                <td>${event.date}</td>
+                                <td>${event.location}</td>
+                                <td><span class="badge ${event.status.toLowerCase()}">${event.status}</span></td>
+                                <td style="align-text="center";>
+                                   <br> 🌞   Temp: ${weather.nightTemp}°C<br>
+                                    <br> 🌜 Temp: ${weather.morningTemp}°C<br>
+                                </td>
+                            `;
+                eventListBody.appendChild(eventRow);
+            }
+        }
+
+        // Load events and weather on page load
+        document.addEventListener('DOMContentLoaded', loadEvents);
     </script>
 
 </body>
