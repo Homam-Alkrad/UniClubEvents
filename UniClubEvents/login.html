@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,12 +39,12 @@
             width: 100%;
         }
 
-            .form-box h2 {
-                text-align: center;
-                font-size: 24px;
-                color: #007bff;
-                margin-bottom: 20px;
-            }
+        .form-box h2 {
+            text-align: center;
+            font-size: 24px;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
 
         .input-box-login {
             position: relative;
@@ -53,46 +52,59 @@
             margin-bottom: 20px;
         }
 
-            .input-box-login label {
-                color: #9da1a3;
-                position: absolute;
-                top: 50%;
-                left: 5px;
-                transform: translateY(-50%);
-                font-size: 14px;
-                transition: 0.5s;
-            }
-
-            .input-box-login input {
-                width: 100%;
-                padding: 10px 35px 10px 5px;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-                font-size: 14px;
-                outline: none;
-                transition: all 0.3s ease;
-            }
-
-                .input-box-login input:focus ~ label,
-                .input-box-login input:not(:placeholder-shown) ~ label {
-                    top: -10px;
-                    font-size: 12px;
-                    color: #007bff;
-                }
-
-        input:focus {
-            background-color: #e7f0ff;
+        .input-box-login label {
+            color: #9da1a3;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            font-size: 14px;
+            transition: 0.5s;
+            pointer-events: none;
         }
 
+        .input-box-login input {
+            width: 100%;
+            padding: 10px 35px 10px 10px; 
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        @-moz-document url-prefix() {
+            .input-box-login .icon-login {
+                position: absolute;
+                right: 10px;
+                top: 50%; 
+                transform: translateY(-50%); 
+                font-size: 18px;
+                color: #007bff;
+            }
+        }
+
+        .input-box-login input:focus ~ label,
+        .input-box-login input:not(:placeholder-shown) ~ label {
+            top: -10px;
+            font-size: 12px;
+            color: #007bff;
+        }
+
+            input:focus {
+                background-color: #e7f0ff;
+            }
 
         .input-box-login .icon-login {
             position: absolute;
-            right: 10px;
+            right: 10px; 
             top: 50%;
             transform: translateY(-50%);
             font-size: 18px;
             color: #007bff;
         }
+
+        
 
         .remember-forgot {
             font-size: 14px;
@@ -102,14 +114,14 @@
             margin-bottom: 20px;
         }
 
-            .remember-forgot a {
-                color: #007bff;
-                text-decoration: none;
-            }
+        .remember-forgot a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
-                .remember-forgot a:hover {
-                    text-decoration: underline;
-                }
+        .remember-forgot a:hover {
+            text-decoration: underline;
+        }
 
         .btn {
             width: 100%;
@@ -123,9 +135,9 @@
             transition: background-color 0.3s ease;
         }
 
-            .btn:hover {
-                background-color: #0056b3;
-            }
+        .btn:hover {
+            background-color: #0056b3;
+        }
 
         .login-register {
             text-align: center;
@@ -133,18 +145,18 @@
             margin-top: 20px;
         }
 
-            .login-register p {
-                margin: 0;
-            }
+        .login-register p {
+            margin: 0;
+        }
 
-                .login-register p a {
-                    color: #007bff;
-                    text-decoration: none;
-                }
+        .login-register p a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
-                    .login-register p a:hover {
-                        text-decoration: underline;
-                    }
+        .login-register p a:hover {
+            text-decoration: underline;
+        }
 
         .error {
             border-color: red;
@@ -156,6 +168,44 @@
             margin-top: 8px;
             padding-left: 7px;
         }
+
+        .alert-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            color: #000000;
+            padding: 50px 60px; 
+            border-radius: 15px;
+            width: 400px; 
+            box-shadow: 0 0 15px rgba(3, 3, 3, 0.2); 
+            z-index: 1000;
+            text-align: center; 
+        }
+
+
+        .alert-box p {
+            font-size: 20px; 
+            margin-bottom: 40px; 
+        }
+
+        .close-btn {
+            background-color: #d82134; 
+            color: #fff; 
+            padding: 15px 40px; 
+            border: none;
+            border-radius: 5px;
+            font-size: 18px; 
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background-color: #a31626; 
+        }
+
     </style>
 </head>
 <body>
@@ -185,31 +235,40 @@
                     <a href="#">Forgot password?</a>
                 </div>
 
-                <button type="submit" class="btn">Login</button>
+                <span>
+                    <button type="submit" class="btn">Login</button>
+                </span>
 
                 <div class="login-register">
                     <p>
                         Don't have an account?
-                        <a href="register.html">Register</a>
+                        <a href="Register.html">Register</a>
                     </p>
                 </div>
             </form>
+            
+            <div id="customAlert" class="alert-box">
+                <p>Login successful! Welcome, <span id="userName"></span></p>
+                <button class="close-btn">Done</button>
+            </div>
+
+            
         </div>
     </div>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function (event) {
             event.preventDefault();
-
+    
             // Clear any previous error messages
             document.getElementById('usernameErrorlogin').textContent = '';
             document.getElementById('passwordErrorlogin').textContent = '';
-
+    
             // Get input values
             const username = document.getElementById('username').value.trim();
             const password = document.getElementById('password').value;
-
+    
             let isValid = true;
-
+    
             // Validate username (email)
             if (!username) {
                 document.getElementById('usernameErrorlogin').textContent = 'Username is required.';
@@ -218,7 +277,7 @@
             } else {
                 document.getElementById('username').classList.remove('error');
             }
-
+    
             // Validate password
             if (!password) {
                 document.getElementById('passwordErrorlogin').textContent = 'Password is required.';
@@ -227,33 +286,45 @@
             } else {
                 document.getElementById('password').classList.remove('error');
             }
-
+    
             // If validation is successful
             if (isValid) {
                 // Check if the username and password match the admin credentials first
-                if ((username === 'Admin@gmail.com' && password === 'Admin123') || (username === 'admin2@gmail.com' && password === 'Admin123')) {
-                    alert('Login successful! Welcome, Admin.');
+                if ((username === 'Admin@gmail.com' && password === 'Admin123') || 
+                    (username === 'admin2@gmail.com' && password === 'Admin123')) {
 
-                    // Store logged-in admin information
+                    document.getElementById('userName').textContent = username;
+                    document.getElementById('customAlert').style.display = 'block';
+                    document.getElementById('loginForm').style.display = 'none'; 
+
                     localStorage.setItem('loggedInUser', JSON.stringify({ username, isAdmin: true }));
 
+    
                     // Redirect to the dashboard
-                    window.location.href = 'dashboard.html'; // Replace with the actual dashboard URL
-
+                    document.querySelector('.close-btn').addEventListener('click', function() {
+                        window.location.href = 'dashboard.html';
+                    });
+    
                 } else {
                     // Check for registered users in localStorage
                     const userData = JSON.parse(localStorage.getItem(username));
-
+    
+                    // Check if user data exists and if the password matches
                     if (userData && userData.password === password) {
                         // If user is found and password matches
-                        alert('Login successful! Welcome, ' + userData.firstName);
+                        if (userData.isAdmin) {
 
-                        // Store logged-in user information
-                        localStorage.setItem('loggedInUser', JSON.stringify({ username, isAdmin: userData.isAdmin }));
+                            localStorage.setItem('loggedInUser', JSON.stringify({ username, isAdmin: userData.isAdmin }));
 
-                        // Redirect to user dashboard or homepage
-                        window.location.href = 'Dashboard.html'; // Replace with the actual user dashboard URL
-
+                            document.getElementById('customAlert').style.display = 'block';
+                            document.getElementById('loginForm').style.display = 'none'; 
+    
+                            document.querySelector('.close-btn').addEventListener('click', function() {
+                                window.location.href = 'dashboard.html';
+                            });
+                        } else {
+                            alert('Access denied! You are not an admin.');
+                        }
                     } else {
                         // If user is not found or password doesn't match
                         alert('Invalid username or password.');
@@ -261,12 +332,12 @@
                         document.getElementById('password').classList.add('error');
                     }
                 }
-
+    
                 // Reset the form
                 document.getElementById('loginForm').reset();
             }
         });
-
+    
         // Clear error messages when typing
         document.querySelectorAll('input').forEach(input => {
             input.addEventListener('input', function () {
@@ -275,8 +346,7 @@
                 input.classList.remove('error');
             });
         });
-
     </script>
-
+    
 </body>
 </html>
